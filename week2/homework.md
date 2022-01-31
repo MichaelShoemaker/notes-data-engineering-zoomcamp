@@ -31,6 +31,8 @@ What should be the start date for this dag?
 * 2021-01-01
 * days_ago(1)
 
+ANSWER: 2021-01-01
+
 
 ## Question 2: Frequency (1 point)
 
@@ -41,6 +43,7 @@ How often do we need to run it?
 * Yearly
 * Once
 
+ANSWER: Monthly
 
 ## Re-running the DAGs for past dates
 
