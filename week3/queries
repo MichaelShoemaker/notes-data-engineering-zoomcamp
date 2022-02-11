@@ -15,13 +15,15 @@ SELECT count(*) FROM `dazzling-pier-338723.trips_data_all.fhv_tripdata_nonpartit
 Question 2 Query:
 SELECT count(distinct dispatching_base_num) FROM `dazzling-pier-338723.trips_data_all.fhv_tripdata_nonpartitioned` 
 
-SELECT count(*) 
-FROM `dazzling-pier-338723.trips_data_all.fhv_tripdata_partitioned` 
-WHERE  dropoff_datetime BETWEEN '2019-01-01' AND '2019-03-31'
-and dispatching_base_num in ('B00987', 'B02060', 'B02279')
+
+#Create partitioned and clustered table
+CREATE OR REPLACE TABLE `dazzling-pier-338723.trips_data_all.fhv_tripdata_partitioned_and_clustered`
+PARTITION BY date(dropoff_datetime)
+CLUSTER BY dispatching_base_num AS
+SELECT * FROM `dazzling-pier-338723.trips_data_all.fhv_tripdata_nonpartitioned
 
 
-SELECT count(*) 
-FROM `dazzling-pier-338723.trips_data_all.external_fhv_tripdata` 
+#Question 4 Query
+SELECT count(*) FROM `dazzling-pier-338723.trips_data_all.fhv_tripdata_partitioned_and_clustered` 
 WHERE  dropoff_datetime BETWEEN '2019-01-01' AND '2019-03-31'
 and dispatching_base_num in ('B00987', 'B02060', 'B02279')
