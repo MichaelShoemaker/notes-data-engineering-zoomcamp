@@ -9,7 +9,11 @@ PARTITION BY
 date(dropoff_datetime) AS
 SELECT *  FROM `dazzling-pier-338723.trips_data_all.fhv_tripdata_nonpartitioned` 
 
+Question 1 Query:
+SELECT count(*) FROM `dazzling-pier-338723.trips_data_all.fhv_tripdata_nonpartitioned` 
 
+Question 2 Query:
+SELECT count(distinct dispatching_base_num) FROM `dazzling-pier-338723.trips_data_all.fhv_tripdata_nonpartitioned` 
 
 SELECT count(*) 
 FROM `dazzling-pier-338723.trips_data_all.fhv_tripdata_partitioned` 
